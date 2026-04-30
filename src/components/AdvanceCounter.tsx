@@ -22,4 +22,17 @@ export function AdvancedCounter() {
     useEffect(() => {
         setHistory(prev => [...prev, count])
     }, [count]);
+
+    useEffect(() => {
+        const handleKey = (e: KeyboardEvent) => {
+            if (e.key === "ArrowUp") setCount(prev => prev + step);
+            if (e.key === "ArrowDown") setCount(prev => prev - step);
+        };
+
+        document.addEventListener("keydown", handleKey);
+
+        return () => {
+            document.removeEventListener("keydown", handleKey);
+        };
+    }, [step])
 }
