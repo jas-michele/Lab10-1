@@ -35,4 +35,24 @@ export function AdvancedCounter() {
             document.removeEventListener("keydown", handleKey);
         };
     }, [step])
+
+    return (
+        <div>
+            <h2>Count: {count}</h2>
+
+            <button onClick={minus}>Decrement</button>
+            <button onClick={add}>Increment</button>
+            <button onClick={reset}>Reset</button>
+
+            <input
+                type="number"
+                min="1"
+                step="1"
+                value={step}
+                onChange={(e) => setStep(Number(e.target.value))}
+            />
+
+            <p>History: {history.join(", ")}</p>
+        </div>
+    )
 }
