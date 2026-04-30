@@ -17,6 +17,7 @@ export function AdvancedCounter() {
     const reset = () => {
         setCount(0);
         setHistory([]);
+        setStep(1);
     }
 
     useEffect(() => {
