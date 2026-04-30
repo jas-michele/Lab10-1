@@ -1,4 +1,4 @@
-import { AdvancedCounter } from './components/AdvanceCounter'
+import { AdvancedCounter } from './components/AdvancedCounter/AdvanceCounter'
 import './App.css'
 
 function App() {

@@ -1,7 +1,8 @@
 import { useState ,useEffect } from "react";
+import "./AdvanceCounter.css";
 
 
-export function AdvancedCounter() {
+export default function AdvancedCounter() {
     const [count, setCount] = useState(0);
     const [step, setStep] = useState(1);
     const [history, setHistory] = useState<number[]>([]);
@@ -38,22 +39,33 @@ export function AdvancedCounter() {
     }, [step])
 
     return (
-        <div>
-            <h2>Count: {count}</h2>
+        <div className="container">
+           <div className="card" >
+            <h4 className="title">Counter</h4>
 
-            <button onClick={minus}>Decrement</button>
-            <button onClick={add}>Increment</button>
-            <button onClick={reset}>Reset</button>
 
+            <h2 className="count">Count: {count}</h2>
+
+        <div className="buttonGroup">
+            <button className="button" onClick={minus}>Decrement</button>
+            <button className="button" onClick={add}>Increment</button>
+            <button className="resetbutton" onClick={reset}>Reset</button>
+          </div>  
+
+          <div className="inputGroup">
+            <label>Step:</label>
             <input
                 type="number"
-                min="1"
-                step="1"
                 value={step}
                 onChange={(e) => setStep(Number(e.target.value))}
+                className="input"
             />
+          </div>
+                <p className="history">
+                  History: {history.join(", ")}
+                </p>
 
-            <p>History: {history.join(", ")}</p>
+            </div>
         </div>
     )
 }
